@@ -16,10 +16,11 @@ function combina(A,B,t) {
 }
 
 function draw() {
-    let p1, p2, p3;
+    let p0,p1, p2, p3;
     background(200);
-    p1 = {x:10,y:height/2};
-    p2 = {x:width-10,y:height/2};
+    p0 = {x:10,y:height/3};
+    p1 = {x:width-10,y:height/3};
+    p2 = (x::10, height/2);
     p3 = {x:mouseX,y:mouseY};
     //segmento(p1,p3);
     //segmento(p3,p2);
@@ -27,14 +28,17 @@ function draw() {
     beginShape();
     for(let t=0; t<=1; t+=0.01)
     {
-        A = combina(p1,p3,t);
-        B = combina(p3,p2,t);
-        C = combina(A,B,t);
+        A = combina(p0,p3,t);
+        B = combina(p3,p1,t);
+        C = combina(p1,p2,t);
+        D = combina(A,B,t);
+        E = combina(B,C,t);
+        F = combina(D,E,t);
         //segmento(A,B);
         //ponto(A);
         //ponto(B);
         //ponto(C);
-        vertex(C.x,C.y);
+        vertex(F.x,F.y);
     }
     endShape();
 }
